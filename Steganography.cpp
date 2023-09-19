@@ -22,14 +22,21 @@ void Graphy::readImage(string fileName){
       colorData.push_back(i);
       
     }
+  file.close();
 }
 void Graphy::printImage(string fileName)
 {
-  
+                                                                                                                                                                                      
 }
 void Graphy::readCipherText(string fileName)
 {
-  
+  ifstream file;
+
+  file.open(fileName);
+
+  getline(file, cipherText);
+
+  file.close();
 }
 void Graphy::printCipherText(string filename)
 {
