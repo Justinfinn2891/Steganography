@@ -10,7 +10,7 @@ class Graphy
   int width;
   int height;
   int maxColor;
-  vector<int> colorData;
+  std::vector<int> colorData;
   std::string cipherText;
   int getNthBit(char cipherChar, int n);
   
