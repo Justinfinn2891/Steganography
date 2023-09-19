@@ -1,6 +1,6 @@
 #ifndef STEGANOGRAPHY_H
 #define STEGANOGRAPHY_H
-
+#include <vector>
 #include <string>
 
 class Graphy
