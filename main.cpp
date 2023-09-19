@@ -9,7 +9,7 @@ int main() {
   char operation;
   cin>>operation;
   operation=tolower(operation);
-  if(operation=='c'){
+  if(operation=='e'){
     cout<<"success"<<endl;
   }
   else if(operation=='d'){
