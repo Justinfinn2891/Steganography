@@ -35,7 +35,7 @@ void Graphy::readCipherText(string fileName)
   ifstream file;
 
   file.open(fileName);
-
+  //l
   getline(file, cipherText);
 
   file.close();
