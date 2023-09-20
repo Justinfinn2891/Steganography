@@ -14,15 +14,17 @@ void Graphy::readImage(string fileName){
   file >> magicNumber >> width >> height >> maxColor;
 
   int i = 0;
-  colorData.push_back(i);
-  
-  while(file)
+  int save=0;
+  while(file>>save)
     {
       i++;
-      colorData.push_back(i);
-      
+      colorData.push_back(save);
     }
   file.close();
+  for (auto it = colorData.begin(); it != colorData.end(); ++it){
+        cout << ' ' << *it;
+  }
+  cout<<endl;
 }
 void Graphy::printImage(string fileName)
 {
