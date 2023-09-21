@@ -12,7 +12,7 @@ void Graphy::readImage(string fileName){
   file.open(fileName);
 
   file >> magicNumber >> width >> height >> maxColor;
-
+  //loop to show that it inputs properly
   int i = 0;
   int save=0;
   while(file>>save)
@@ -35,7 +35,7 @@ void Graphy::readCipherText(string fileName)
   ifstream file;
 
   file.open(fileName);
-  //l
+  
   getline(file, cipherText);
 
   file.close();
