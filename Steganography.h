@@ -1,3 +1,12 @@
+/**
+ *@file Steganography.h
+ *@author Gabriel Speers & Justin Finn
+ *@date 2023-09-20
+ *@brief header file that holds variables and methods for class Graphy
+ *
+ * File that contains the methods and variables being used by other files such as Steganography.cpp and main.cpp for the class Graphy
+ */
+
 #ifndef STEGANOGRAPHY_H
 #define STEGANOGRAPHY_H
 #include <vector>
