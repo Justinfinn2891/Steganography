@@ -6,11 +6,18 @@
 class Graphy
 {
  private:
+
+  // image number 
   std::string magicNumber;
+  // width of image
   int width;
+  // height of image
   int height;
+  // max color of image
   int maxColor;
+  // holds pixel data
   std::vector<int> colorData;
+  // holds encrypted text 
   std::string cipherText;
 
 
