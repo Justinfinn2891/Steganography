@@ -54,20 +54,19 @@ void Graphy::cleanImage()
 void Graphy::encipher(){
   cleanImage();
   int count=0;
-  int i=0;
   int length=cipherText.length();
   
-  while(i<length){
-  int ch=cipherText[i];
+  while(count<length){
+  int ch=cipherText[count];
   int cycle=0;
   
-  while(cycle<7){
+  while(cycle<8){
+    cycle++;
     int bit= getNthBit(ch,cycle);
     
     for (auto it = colorData.begin(); it != colorData.end(); ++it){
       *it = *it+bit;
     }
-
   }
   count++;
 }
