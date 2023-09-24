@@ -61,3 +61,8 @@ void Graphy::decipher()
 {
   
 }
+
+int Graphy::getNthBit(char cipherChar, int n)
+{
+  
+}
