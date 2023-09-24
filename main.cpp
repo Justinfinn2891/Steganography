@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
   string PPM;
-  string input;
+  string textfile;
   string code;
   Graphy Stegano;
 
@@ -22,27 +22,20 @@ int main() {
     cin>>PPM;
     Stegano.readImage(PPM);
     cout<<"What is the name of the input text file?"<<endl;
-    cin>>input;
-    Stegano.readCipherText(input);
+    cin>>textfile;
+    Stegano.readCipherText(textfile);
     Stegano.encipher();
     cout<<"What should be the name of the Encoded PPM file?"<<endl;
     cin>>code;
     Stegano.printImage(code);
     
     
-  }
-
-  string encode, textfile; 
-   if(operation=='d'){
+  }else if(operation=='d'){
     cout << "What is the encoded PPM filename? ";
-    cin >> encode;
-
-    if(encode == code)
-      {
-	cout << "What should be the name for the output text file?";
-	cin >> textfile;
-      }
-  }
+    cin >> code;
+    cout << "What should be the name for the output text file?";
+    cin >> textfile;
+   }
   else{
     cout<<"Error"<<endl;
   }

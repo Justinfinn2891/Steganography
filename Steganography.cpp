@@ -9,7 +9,7 @@ using namespace std;
 void Graphy::readImage(string fileName){
   ifstream file;
 
-  file.open(fileName);
+  file.open(fileName+".ppm");
 
   file >> magicNumber >> width >> height >> maxColor;
   //loop to show that it inputs properly
@@ -41,7 +41,7 @@ void Graphy::readCipherText(string fileName)
 {
   ifstream file;
 
-  file.open(fileName);
+  file.open(fileName+".txt");
   
   getline(file, cipherText);
 
@@ -67,13 +67,12 @@ void Graphy::encipher(){
   int ch=cipherText[count];
   int cycle=0;
   
-  while(cycle<8){
+  while(cycle<7){
     cycle++;
     int bit= getNthBit(ch,cycle);
       *it = *it+bit;
       ++it;
-      cout<<*it<<endl;
-  }
+     }
   count++;
 }
 }
