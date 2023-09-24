@@ -28,7 +28,15 @@ void Graphy::readImage(string fileName){
 }
 void Graphy::printImage(string fileName)
 {
-                                                                                                                                                                                      
+  fileName=fileName+".ppm";
+  ofstream outFile(fileName);
+  outFile<<magicNumber;
+  outFile<<width;
+  outFile<<maxColor;
+   for (auto it = colorData.begin(); it != colorData.end(); ++it){
+     outFile<<*it;
+    }
+   outFile.close();
 }
 void Graphy::readCipherText(string fileName)
 {
