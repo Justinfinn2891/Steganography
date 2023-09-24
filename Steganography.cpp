@@ -26,12 +26,15 @@ void Graphy::printImage(string fileName)
 {
   fileName=fileName+".ppm";
   ofstream outFile(fileName);
-  outFile<<magicNumber;
-  outFile<<width;
-  outFile<<maxColor;
+  outFile<<magicNumber<<endl;
+  outFile<<width<<" "<<height<<endl;
+  outFile<<maxColor<<endl;
+  
    for (auto it = colorData.begin(); it != colorData.end(); ++it){
-     outFile<<*it;
+     int store= *it;
+     outFile<<store<<" ";
     }
+   
    outFile.close();
 }
 void Graphy::readCipherText(string fileName)
@@ -59,7 +62,7 @@ void Graphy::encipher(){
   cleanImage();
   int count=0;
   int length=cipherText.length();
-  
+  auto it = colorData.begin();
   while(count<length){
   int ch=cipherText[count];
   int cycle=0;
@@ -67,10 +70,9 @@ void Graphy::encipher(){
   while(cycle<8){
     cycle++;
     int bit= getNthBit(ch,cycle);
-    
-    for (auto it = colorData.begin(); it != colorData.end(); ++it){
       *it = *it+bit;
-    }
+      ++it;
+      cout<<*it<<endl;
   }
   count++;
 }
