@@ -53,12 +53,28 @@ void Graphy::cleanImage()
    }
    cout<<endl;
 }
-void Graphy::encipher()
-{
-  int g=2;
-  int f= getNthBit('n',g);
- cout<<f<<endl;
+void Graphy::encipher(){
+  cleanImage();
+  int count=0;
+  int i=0;
+  int length=cipherText.length();
+  
+  while(i<length){
+  int ch=cipherText[i];
+  int cycle=0;
+  
+  while(cycle<7){
+    int bit= getNthBit(ch,cycle);
+    
+    for (auto it = colorData.begin(); it != colorData.end(); ++it){
+      *it = *it+bit;
+    }
+
+  }
+  count++;
 }
+}
+  
 void Graphy::decipher()
 {
   
@@ -88,5 +104,5 @@ int Graphy::getNthBit(char cipherChar, int n)
     tic++;
     }
 
-  return store[n-1];
+  return store[n];
 }
