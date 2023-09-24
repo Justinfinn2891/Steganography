@@ -22,6 +22,7 @@ int main() {
     cin>>PPM;
     Stegano.readImage(PPM);
     Stegano.cleanImage();
+    Stegano.encipher();
     cout<<"What is the name of the input text file?"<<endl;
     cin>>input;
     Stegano.readCipherText(input);
