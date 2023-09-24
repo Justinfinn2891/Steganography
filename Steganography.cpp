@@ -21,9 +21,6 @@ void Graphy::readImage(string fileName){
       colorData.push_back(save);
     }
   file.close();
-  for (auto it = colorData.begin(); it != colorData.end(); ++it){
-        cout << ' ' << *it;
-  }
   cout<<endl;
 }
 void Graphy::printImage(string fileName)
