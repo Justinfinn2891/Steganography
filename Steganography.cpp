@@ -46,7 +46,12 @@ void Graphy::printCipherText(string filename)
 }
 void Graphy::cleanImage()
 {
-  
+   for (auto it = colorData.begin(); it != colorData.end(); ++it){
+     int f=*it%2;
+     *it=*it - f;
+     cout<< ' '<< *it;
+   }
+   cout<<endl;
 }
 void Graphy::encipher()
 {
