@@ -21,17 +21,27 @@ int main() {
     cout<<"What is the PPM filename?"<<endl;
     cin>>PPM;
     Stegano.readImage(PPM);
-    Stegano.cleanImage();
     Stegano.encipher();
     cout<<"What is the name of the input text file?"<<endl;
     cin>>input;
     Stegano.readCipherText(input);
     cout<<"What should be the name of the Encoded PPM file?"<<endl;
     cin>>code;
+    Stegano.printImage(code);
+    
     
   }
-  else if(operation=='d'){
-    cout<<"success"<<endl;
+
+  string encode, textfile; 
+   if(operation=='d'){
+    cout << "What is the encoded PPM filename? ";
+    cin >> encode;
+
+    if(encode == code)
+      {
+	cout << "What should be the name for the output text file?";
+	cin >> textfile;
+      }
   }
   else{
     cout<<"Error"<<endl;
