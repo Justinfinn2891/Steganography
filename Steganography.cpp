@@ -55,7 +55,8 @@ void Graphy::cleanImage()
 }
 void Graphy::encipher()
 {
-int f= getNthBit('n',2);
+  int g=2;
+  int f= getNthBit('n',g);
  cout<<f<<endl;
 }
 void Graphy::decipher()
@@ -72,14 +73,14 @@ int Graphy::getNthBit(char cipherChar, int n)
   
   while(letter!=0){
     store[count]=letter%2;
-    letter=letter-store[count]/2;
+    letter=(letter-store[count])/2;
     count++;
   }
   while(count<7){
     count++;
     store[count]=0;
   }
-  while(tic<7){
+  while(tic<4){
     int a=store[tic];
     int b=store[7-tic];
     store[tic]=b;
