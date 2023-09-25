@@ -2,6 +2,7 @@
 #include <vector>
 #include "Steganography.h"
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ void Graphy::readImage(string fileName){
   file.open(fileName+".ppm");
 
   file >> magicNumber >> width >> height >> maxColor;
-  //loop to show that it inputs properly
+
   int i = 0;
   int save=0;
   while(file>>save)
@@ -26,9 +27,9 @@ void Graphy::printImage(string fileName)
 {
   fileName=fileName+".ppm";
   ofstream outFile(fileName);
-  outFile<<magicNumber<<endl;
-  outFile<<width<<" "<<height<<endl;
-  outFile<<maxColor<<endl;
+  outFile<<magicNumber<<" ";
+  outFile<<width<<" "<<height<<" ";
+  outFile<<maxColor;
   
    for (auto it = colorData.begin(); it != colorData.end(); ++it){
      int store= *it;
@@ -71,7 +72,7 @@ void Graphy::encipher(){
   int ch=cipherText[count];
   int cycle=0;
   
-  while(cycle<7){
+  while(cycle<8){
     cycle++;
     int bit= getNthBit(ch,cycle);
       *it = *it+bit;
@@ -83,12 +84,12 @@ void Graphy::encipher(){
   
 void Graphy::decipher()
 {
-  string d = ""; 
+  string d = " "; 
   for(auto it = colorData.begin(); it != colorData.end();++it)
     {
-      
-      d += *it %2;
-    }
+      int f=*it%2;     
+      d +=to_string(f);
+      }
 
   int size = d.length()/8; 
   int dec[size];
@@ -97,6 +98,7 @@ void Graphy::decipher()
   for(int i = 0; i < d.length(); i+=8)
      {
        string c = d.substr(i, 8);
+       cout<<c<<endl;
        int len = c.length();
        int base = 1;
        int dec_value = 0;
@@ -158,5 +160,5 @@ int Graphy::getNthBit(char cipherChar, int n)
     tic++;
     }
 
-  return store[n];
+  return store[n-1];
 }
