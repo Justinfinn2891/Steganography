@@ -49,10 +49,10 @@ void Graphy::readCipherText(string fileName)
 }
 void Graphy::printCipherText(string fileName)
 {
- fileName=fileName+".txt";                                                                                                                                   
-  ofstream outFile(fileName);                                                                                                                                 
-  outFile<<cipherText<<endl;                                                                                                                                                                                                                                                                                      
-                                                                                                                                                              
+ fileName=fileName+".txt";
+ 
+  ofstream outFile(fileName);
+  outFile<<cipherText<<endl;                                                                                    
    outFile.close();
 }
 void Graphy::cleanImage()
