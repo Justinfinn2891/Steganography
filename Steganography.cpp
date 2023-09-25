@@ -47,9 +47,13 @@ void Graphy::readCipherText(string fileName)
 
   file.close();
 }
-void Graphy::printCipherText(string filename)
+void Graphy::printCipherText(string fileName)
 {
-  
+ fileName=fileName+".txt";                                                                                                                                   
+  ofstream outFile(fileName);                                                                                                                                 
+  outFile<<cipherText<<endl;                                                                                                                                                                                                                                                                                      
+                                                                                                                                                              
+   outFile.close();
 }
 void Graphy::cleanImage()
 {
@@ -79,7 +83,55 @@ void Graphy::encipher(){
   
 void Graphy::decipher()
 {
-  
+  string d = ""; 
+  for(auto it = colorData.begin(); it != colorData.end();++it)
+    {
+      
+      d += *it %2;
+    }
+
+  int size = d.length()/8; 
+  int dec[size];
+  int z = 0;
+
+  for(int i = 0; i < d.length(); i+=8)
+     {
+       string c = d.substr(i, 8);
+       int len = c.length();
+       int base = 1;
+       int dec_value = 0;
+
+       for(int j = len -1; j>= 0; j--)
+	 {
+	   if(c[j] == '1')
+	     {
+	       dec_value += base;
+	     }
+	      base = base * 2; 
+		}
+	  dec[z] = dec_value;
+	  
+	  cout << dec[z] << endl;
+	  z++;
+	    }
+       
+   
+for(int g = 0; g < size; g++)
+  {
+    int store = dec[g];
+   char one = store + '0';
+    one = one - '0';
+    if(one == 00000000)
+      {
+	// IGNORE
+      }
+    else
+      {
+    cipherText += one;
+      }
+    
+  }
+ 
 }
 
 int Graphy::getNthBit(char cipherChar, int n)

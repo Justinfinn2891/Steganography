@@ -33,8 +33,13 @@ int main() {
   }else if(operation=='d'){
     cout << "What is the encoded PPM filename? ";
     cin >> code;
+    Stegano.readImage(code);
+    Stegano.decipher();
     cout << "What should be the name for the output text file?";
     cin >> textfile;
+    Stegano.printCipherText(textfile);
+    
+    
    }
   else{
     cout<<"Error"<<endl;
