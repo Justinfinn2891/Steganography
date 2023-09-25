@@ -125,7 +125,7 @@ for(int g = 0; g < size; g++)
 int Graphy::getNthBit(char cipherChar, int n)
 {
   int store[8];
-  int letter=int(cipherChar);
+  int letter=(int(cipherChar)+0);
   int count=0;
   int tic=0;
   
