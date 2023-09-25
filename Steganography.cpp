@@ -14,12 +14,11 @@ void Graphy::readImage(string fileName){
 
   file >> magicNumber >> width >> height >> maxColor;
 
-  int i = 0;
-  int save=0;
+  int save = 0;
   while(file>>save)
     {
-      i++;
       colorData.push_back(save);
+      cout<<save<<endl;
     }
   file.close();
 }
@@ -84,12 +83,13 @@ void Graphy::encipher(){
   
 void Graphy::decipher()
 {
-  string d = " "; 
+  string d = ""; 
   for(auto it = colorData.begin(); it != colorData.end();++it)
     {
       int f=*it%2;     
       d +=to_string(f);
-      }
+      
+    }
 
   int size = d.length()/8; 
   int dec[size];
@@ -98,7 +98,6 @@ void Graphy::decipher()
   for(int i = 0; i < d.length(); i+=8)
      {
        string c = d.substr(i, 8);
-       cout<<c<<endl;
        int len = c.length();
        int base = 1;
        int dec_value = 0;
@@ -112,17 +111,16 @@ void Graphy::decipher()
 	      base = base * 2; 
 		}
 	  dec[z] = dec_value;
-	  
-	  cout << dec[z] << endl;
-	  z++;
+     	  z++;
 	    }
        
    
 for(int g = 0; g < size; g++)
   {
     int store = dec[g];
-   char one = store + '0';
-    one = one - '0';
+   char one = store + 'a';
+    one = one - 'a';
+    cout<<one<<endl;
     if(one == 00000000)
       {
 	// IGNORE
