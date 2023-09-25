@@ -18,7 +18,6 @@ void Graphy::readImage(string fileName){
   while(file>>save)
     {
       colorData.push_back(save);
-      cout<<save<<endl;
     }
   file.close();
 }
@@ -30,7 +29,7 @@ void Graphy::printImage(string fileName)
   outFile<<width<<" "<<height<<" ";
   outFile<<maxColor<<" ";
   
-   for (auto it = colorData.begin()+1; it != colorData.end(); ++it){
+   for (auto it = colorData.begin(); it != colorData.end(); ++it){
      int store= *it;
      outFile<<store<<" ";
     }
