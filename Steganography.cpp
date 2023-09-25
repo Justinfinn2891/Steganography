@@ -146,7 +146,7 @@ int Graphy::getNthBit(char cipherChar, int n)
     letter=letter/2;
     count++;
   }
-  while(count<7){
+  while(count<8){
     count++;
     store[count]=0;
   }
