@@ -103,7 +103,6 @@ void Graphy::decipher()
 
        for(int j = len-1; j>= 0; j--)
 	 {
-	   cout<<c[j]<<endl;
 	   if(c[j] == '1')
 	     {
 	       dec_value += base;
@@ -119,8 +118,6 @@ for(int g = 0; g < size; g++)
   {
     int store = dec[g];
     cipherText+=store;
-    cout<<cipherText<<endl;
-    
   }
  
 }
@@ -128,7 +125,7 @@ for(int g = 0; g < size; g++)
 int Graphy::getNthBit(char cipherChar, int n)
 {
   int store[8];
-  int letter=(int(cipherChar)+0);
+  int letter=int(cipherChar);
   int count=0;
   int tic=0;
   
