@@ -30,7 +30,7 @@ void Graphy::printImage(string fileName)
   outFile<<width<<" "<<height<<" ";
   outFile<<maxColor<<" ";
   
-   for (auto it = colorData.begin(); it != colorData.end(); ++it){
+   for (auto it = colorData.begin()+1; it != colorData.end(); ++it){
      int store= *it;
      outFile<<store<<" ";
     }
@@ -72,10 +72,10 @@ void Graphy::encipher(){
   int cycle=0;
   
   while(cycle<8){
-    cycle++;
     int bit= getNthBit(ch,cycle);
       *it = *it+bit;
       ++it;
+      cycle++;
      }
   count++;
 }
@@ -86,7 +86,7 @@ void Graphy::decipher()
   string d = ""; 
   for(auto it = colorData.begin(); it != colorData.end();++it)
     {
-      int f=*it%2;     
+      int f= *it%2;     
       d +=to_string(f);
       
     }
@@ -102,8 +102,9 @@ void Graphy::decipher()
        int base = 1;
        int dec_value = 0;
 
-       for(int j = len -1; j>= 0; j--)
+       for(int j = len-1; j>= 0; j--)
 	 {
+	   cout<<c[j]<<endl;
 	   if(c[j] == '1')
 	     {
 	       dec_value += base;
@@ -118,17 +119,8 @@ void Graphy::decipher()
 for(int g = 0; g < size; g++)
   {
     int store = dec[g];
-   char one = store + 'a';
-    one = one - 'a';
-    cout<<one<<endl;
-    if(one == 00000000)
-      {
-	// IGNORE
-      }
-    else
-      {
-    cipherText += one;
-      }
+    cipherText+=store;
+    cout<<cipherText<<endl;
     
   }
  
@@ -158,5 +150,5 @@ int Graphy::getNthBit(char cipherChar, int n)
     tic++;
     }
 
-  return store[n-1];
+  return store[n];
 }
