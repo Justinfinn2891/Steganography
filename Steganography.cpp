@@ -28,7 +28,7 @@ void Graphy::printImage(string fileName)
   ofstream outFile(fileName);
   outFile<<magicNumber<<" ";
   outFile<<width<<" "<<height<<" ";
-  outFile<<maxColor;
+  outFile<<maxColor<<" ";
   
    for (auto it = colorData.begin(); it != colorData.end(); ++it){
      int store= *it;
@@ -146,7 +146,7 @@ int Graphy::getNthBit(char cipherChar, int n)
     letter=letter/2;
     count++;
   }
-  while(count<=7){
+  while(count<7){
     count++;
     store[count]=0;
   }
