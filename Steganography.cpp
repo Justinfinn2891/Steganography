@@ -126,6 +126,7 @@ int Graphy::getNthBit(char cipherChar, int n)
 {
   int store[8];
   int letter=(int(cipherChar)+0);
+  letter = letter - 0;
   int count=0;
   int tic=0;
   
@@ -135,8 +136,9 @@ int Graphy::getNthBit(char cipherChar, int n)
     count++;
   }
   while(count<8){
-    count++;
+    
     store[count]=0;
+    count++;
   }
   while(tic<4){
     int a=store[tic];
