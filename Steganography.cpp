@@ -1,3 +1,12 @@
+/**
+ * @file Steganography.cpp
+ * @author Gabriel Speer and Justin Finn
+ * @date 2023-09-25
+ * @brief file containing methods for Graphy class
+ * 
+ * .cpp file containing methods involving the encoding and deciphering of the secret message class
+ */
+
 #include <iostream>
 #include <vector>
 #include "Steganography.h"
@@ -9,12 +18,13 @@ using namespace std;
 
 void Graphy::readImage(string fileName){
   ifstream file;
-
+  // OPENS PPM FILE
   file.open(fileName+".ppm");
-
+  //FILLS WIDTH,HEIGHT, and MAGIC NUMBER DATA
   file >> magicNumber >> width >> height >> maxColor;
 
   int save = 0;
+  // FILLS DATA
   while(file>>save)
     {
       colorData.push_back(save);
@@ -23,6 +33,7 @@ void Graphy::readImage(string fileName){
 }
 void Graphy::printImage(string fileName)
 {
+  // PRINTS OUT INFORMATION INTO SEPARATE FILE
   fileName=fileName+".ppm";
   ofstream outFile(fileName);
   outFile<<magicNumber<<" ";
@@ -38,6 +49,7 @@ void Graphy::printImage(string fileName)
 }
 void Graphy::readCipherText(string fileName)
 {
+  //READS IN CYPHER TEXT
   ifstream file;
 
   file.open(fileName+".txt");
@@ -49,13 +61,14 @@ void Graphy::readCipherText(string fileName)
 void Graphy::printCipherText(string fileName)
 {
  fileName=fileName+".txt";
- 
+ // FILLS TEXT INTO NEW CYPHER FILE
   ofstream outFile(fileName);
   outFile<<cipherText<<endl;                                                                                    
-   outFile.close();
+  outFile.close();
 }
 void Graphy::cleanImage()
 {
+  //EVENS OUT PIXELS
    for (auto it = colorData.begin(); it != colorData.end(); ++it){
      int f=*it%2;
      *it=*it - f;
@@ -140,6 +153,7 @@ int Graphy::getNthBit(char cipherChar, int n)
     store[count]=0;
     count++;
   }
+  //REVERSES SET OF NUMBERS
   while(tic<4){
     int a=store[tic];
     int b=store[7-tic];

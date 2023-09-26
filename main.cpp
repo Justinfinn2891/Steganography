@@ -1,3 +1,12 @@
+/**
+ * @file main.cpp
+ * @author Gabriel Speer and Justin Finn
+ * @date 2023-09-25
+ * @brief file that contains a main
+ * 
+ * main.cpp file that operates the graphy class in the form of stegano and encodes and decodes a message into a ppm image
+ */
+
 
 #include <iostream>
 #include <vector>
@@ -6,6 +15,7 @@
 using namespace std;
 
 int main() {
+  // VARIABLES
   string PPM;
   string textfile;
   string code;
@@ -16,7 +26,7 @@ int main() {
   char operation;
   cin>>operation;
   operation=tolower(operation);
-  
+  //ENCODING
   if(operation=='e'){
     cout<<"What is the PPM filename?"<<endl;
     cin>>PPM;
@@ -29,7 +39,7 @@ int main() {
     cin>>code;
     Stegano.printImage(code);
     
-    
+    //DECODING
   }else if(operation=='d'){
     cout << "What is the encoded PPM filename? ";
     cin >> code;

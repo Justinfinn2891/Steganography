@@ -1,0 +1,14 @@
+A lot of our decision making took place from scratch on a white board. Before we set the code into
+the terminal we brainstormed and planned out ways to attack the project, slowly taking on a method at a time.
+You can run the program by choosing a setting between encoding and decoding:
+
+encoding:
+- you write in a ppm file and then the file containg your cipher text
+- the program quickly writes in the imbedded message into the image and saves it to another ppm file.
+
+decoding:
+- takes your previously saved ppm file with the encoded message and decodes it
+- returns a .txt file with the decoded message
+
+The brainstorming was acted on both partners while the methods were mostly constructed by Gabriel Speer.
+Justin Finn focused more on the header file and comments. Both partners contributed to the intense amount of debugging.
